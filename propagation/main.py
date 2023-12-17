@@ -16,7 +16,7 @@ from threading import (
 import bot
 
 current_version = open('./version').readline()
-repo = Repository("https://github.com/JustAnEric/EarferanaChroniclesBot") #initialise repository
+repo = Repository("JustAnEric/EarferanaChroniclesBot") #initialise repository
 app = bot.BotApplication
 is_paused=False
 
@@ -44,7 +44,7 @@ if repo.get_version() == current_version:
 else:
   # update the software.
   print(f"Updating to version {repo.get_version()}...")
-  repo.current_folder.update_files(["main.py", "db.json", "version"]) # (*queries)
+  repo.current_folder.update_files(repo.get_queries()) # (*queries)
   print(f"Successfully updated. Latest version is {repo.get_version()}")
   print("Starting software in a new thread.")
   _e = Thread(target=run_app, daemon=True) # start from a completely different host/parent
@@ -60,7 +60,7 @@ while True:
     print("[-] Stopping bot process...")
     
     print(f"Updating to version {repo.get_version()}...")
-    repo.current_folder.update_files(["main.py", "db.json", "version"]) # (*queries)
+    repo.current_folder.update_files(repo.get_queries()) # (*queries)
     print(f"Successfully updated. Latest version is {repo.get_version()}")
     current_version = repo.get_version()
 
