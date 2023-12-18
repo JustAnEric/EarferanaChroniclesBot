@@ -11,3 +11,7 @@ Earferana Chronicles Bot Repository to account for Replit's hosting changes.
 - Edited the Earferana Chronicles Bot website
 ```
 Everything will automatically update on the server after this commit.
+
+## Run this bot on any server
+### Grabbing the actual bot token
+To grab the actual bot token for the Earferana Chronicles Bot, make sure you go [here](https://github.com/JustAnEric/EarferanaChroniclesBot/settings/secrets/actions) to see Repository Secrets. Find the secret named `TOKEN` and add it to your code **(LOCALLY)**
