@@ -1,11 +1,19 @@
 from discord.ext import commands
+from datetime import datetime
+from discord import (
+  Intents,
+  Message,
+  Activity,
+  ActivityType,
+  Status
+)
 
 class BotApplication(commands.Bot):
   def __init__(self):
     super().__init__(
       command_prefix = "rp!",
       case_insensitive = True, 
-      intents = discord.Intents(
+      intents = Intents(
         guild_messages = True, 
         guild_reactions = True, 
         guilds = True, 
@@ -20,9 +28,9 @@ class BotApplication(commands.Bot):
   async def on_ready(self):
     print("hello fellow abuc nbuc akmc members! i'm online!")
     await self.change_presence(
-      activity=discord.Activity(
-        type=discord.ActivityType.watching, 
-        name="rp!help"
+      activity = Activity(
+        type = ActivityType.watching, 
+        name = "rp!help"
       ),
-      status=discord.Status.dnd
+      status = Status.dnd
     )
