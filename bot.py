@@ -9,6 +9,7 @@ from discord import (
   Embed,
   Colour
 )
+import discord
 
 class BotApplication(commands.Bot):
   def __init__(self):
@@ -27,7 +28,9 @@ class BotApplication(commands.Bot):
       )
     )
 
-    self.add_listener('ready', self.on_ready)
+    bot = self
+
+    self.add_listener(self.on_ready,'ready')
 
     # commands section
     
@@ -314,7 +317,7 @@ class BotApplication(commands.Bot):
         if year is not None:
           await message.edit(content=int(message.content) + int(year))
           if str(year) == "69" or int(message.content) + year % 100 == 69:
-          await ctx.send("https://tenor.com/view/69-gif-23047473")
+            await ctx.send("https://tenor.com/view/69-gif-23047473")
         else:
           await message.edit(content=1 + int(message.content))
   
