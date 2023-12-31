@@ -11,6 +11,9 @@ from discord import (
 )
 import discord
 
+# MAKE A TOKEN.TXT FILE AND PASTE IN YOUR BOT TOKEN BEFORE RUNNING!
+# then you wont have problems :)
+
 class BotApplication(commands.Bot):
   def __init__(self):
     super().__init__(
@@ -476,7 +479,7 @@ class BotApplication(commands.Bot):
 
     # end events section
 
-    self.run("ADD_TOKEN_HERE_FROM_GITHUB_ENVIRONMENT_VARIABLES")
+    self.run(open('token.txt','r').readline().partition(' ')[0])
 
   async def on_ready(self):
     print("hello fellow abuc nbuc akmc members! i'm online!")
