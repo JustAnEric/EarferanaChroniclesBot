@@ -461,24 +461,6 @@ class BotApplication(commands.Bot):
 
     # end commands section
 
-    #events section
-    @bot.listen("on_invite_create")
-    async def invite_create(invite):
-      if invite.guild != None and invite.guild.id == 1099631641040793612:
-        if invite.max_age > 43200 or invite.max_age == 0:
-          await invite.delete(reason="More than one day")
-          return
-        if invite.max_uses != 1:
-          await invite.delete(reason="Max uses isn't exactly 1")
-
-    @bot.listen("on_message")
-    async def message_create(message):
-      if message.guild != None and message.guild.id == 1130954621561602258:
-        if message.author.id == 999736048596816014 and ("A wild countryball appeared!" in message.content):
-          await message.channel.send("<@&1135307528553644103>")
-
-    # end events section
-
     self.run(open('token.txt','r').readline().partition(' ')[0])
 
   async def on_ready(self):
