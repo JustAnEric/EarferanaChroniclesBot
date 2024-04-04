@@ -1,2 +1,5 @@
 [1.0.0]
 - Added bot configuration files and issued bot with a secure token.
+
+[1.1.0]
+- Removed the events section for now.
